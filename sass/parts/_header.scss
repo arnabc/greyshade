@@ -2,7 +2,7 @@ $header-height: 30px;
 
 #header{
 	height: $header-height;
-	padding: 30px 0;
+	padding: 30px 16px;
 	border-bottom: 1px solid $color-gray04;
 	line-height: $header-height;
 	@media screen and (max-width: 1040px){
@@ -20,7 +20,8 @@ $header-height: 30px;
 	h1{
 		float: left;
 		font-weight: 300;
-		font-size: 30px;
+		font-size: 24px;
+        text-align: center;
 		@media screen and (max-width: 1040px){
 			float: none;
 		}
@@ -31,19 +32,23 @@ $header-height: 30px;
 	margin-left: 30px;
 	@media screen and (max-width: 1040px){
 		float: none;
-		margin-left: 0;
-		margin-top: 15px;
+		margin-left: 15%;
+		margin-top: 25px;
+        margin-bottom: 25px;
 	}
 	>ul{
 		@media screen and (max-width: 600px){
 			display: none;
 		}
+        
 		>li{
 			margin-left: 50px;
 			@include inline-block;
 			@media screen and (max-width: 1040px){
 				margin-left: 0;
 				margin-right: 50px;
+                overflow: hidden;
+                
 				&:last-of-type{
 					margin-right: 0;
 				}
@@ -56,6 +61,10 @@ $header-height: 30px;
 			>a{
 				padding: 38px 0;
 				margin-top: -38px;
+                font-family: 16px;
+/*                font-weight: 300;*/
+                text-shadow: 0px -1px 0px #323C4B;
+                
 				&:after{
 					content: "\f078";
 					color: $color-gray03;
@@ -70,7 +79,17 @@ $header-height: 30px;
 				@media screen and (max-width: 1040px){
 					padding: 18px 0;
 				}
+                
+                // icons
+                >i {
+                    color: $color-gray05;
+                    /*margin-right: 10px; 
+                    float: left;
+                    width: 15px;*/
+                }
 			}
+            
+            
 		}
 		ul{
 			position: absolute;
@@ -107,12 +126,12 @@ $header-height: 30px;
 				>a{
 					display: block;
 					padding: 5px 15px;
-					&:after{
-						content: "\f054";
-						color: $color-gray02;
-						font: 12px $font-icon;
-						padding-left: 10px;
-					}
+					/*&:after{
+                        content: "\f054";
+                        color: $color-gray02;
+                        font: 12px $font-icon;
+                        padding-left: 10px;
+                    }*/
 					&:hover{
 						color: $color-gray01;
 					}
@@ -301,7 +320,10 @@ $header-height: 30px;
 	}
 	.social{
 		float: left;
-		margin-right: 15px;
+        margin-top: 25px;
+/*        margin-right: 15px;*/
+        text-align: center;
+        
 		@media screen and (max-width: 1040px){
 			float: none;
 			margin-right: 0;
@@ -309,87 +331,68 @@ $header-height: 30px;
 				margin-right: 0;
 			}
 		}
-		a{
-			@include border-radius(50%);
-			@include inline-block;
-			text-indent: -9999px;
+		a {
 			margin-right: 15px;
-			opacity: 0.5;
-			@include square(28px);
 			@include transition(0.3s);
+            text-shadow: none;
+            
+            [class^="icon-"],
+            [class*=" icon-"] {
+				border: 2px solid $turquoise;
+                padding: 8px 10px;
+                @include border-radius(50%);
+                font-size: 24px;
+                width: 24px;
+                color: $turquoise;
+            }
+            
 			&:hover{
-				opacity: 1;
+				i {
+                    border-color: lighten($turquoise, 10%); 
+                }
 			}
-			&.facebook{
-				background: image-url('social/facebook.png') center no-repeat #3B5998;
-				border: 1px solid #3B5998;
-				&:hover{
-					border: 1px solid darken(#3B5998, 10%);
-				}
-			}
-			&.google{
-				background: image-url('social/google.png') center no-repeat #C83D20;
-				border: 1px solid #C83D20;
-				&:hover{
-					border: 1px solid darken(#C83D20, 10%);
-				}
-			}
-			&.twitter{
-				background: image-url('social/twitter.png') center no-repeat #55CFF8;
-				border: 1px solid #55CFF8;
-				&:hover{
-					border: 1px solid darken(#55CFF8, 10%);
-				}
-			}
-			&.github{
-				background: image-url('social/github.png') center no-repeat rgb(175,182,202);
-				border: 1px solid rgb(175,182,202);
-				&:hover{
-					border: 1px solid darken(rgb(175,182,202), 10%);
-				}
-			}
-			&.coderwall{
-				background: image-url('social/coderwall.png') center no-repeat #3E8DCC;
-				border: 1px solid #3E8DCC;
-				&:hover{
-					border: 1px solid darken(#3E8DCC, 10%);
-				}
-			}			
-			&.linkedin{
-				background: image-url('social/linkedin.png') center no-repeat #005A87;
-				border: 1px solid #005A87;
-				&:hover{
-					border: 1px solid darken(#005A87, 10%);
-				}
-			}
-			&.pinterest{
-				background: image-url('social/pinterest.png') center no-repeat rgb(190,64,55);
-				border: 1px solid rgb(190,64,55);
-				&:hover{
-					border: 1px solid darken(rgb(190,64,55), 10%);
-				}
-			}
-			&.delicious{
-				background: image-url('social/delicious.png') center no-repeat rgb(50,113,203);
-				border: 1px solid rgb(50,113,203);
-				&:hover{
-					border: 1px solid darken(rgb(50,113,203), 10%);
-				}
-			}
-			&.pinboard{
-			  background: image-url('social/pinboard.png') center no-repeat rgb(0,102,200);
-			  border: 1px solid rgb(58,114,159);
-			  &:hover{
-			    border: 1px solid darken(rgb(0,102,255), 10%);
-			  }
-			}
-			&.rss{
-				background: image-url('social/rss.png') center no-repeat #EF7522;
-				border: 1px solid #EF7522;
-				&:hover{
-					border: 1px solid darken(#EF7522, 10%);
-				}
-			}
+            
+			/*&.facebook{
+                background: image-url('social/facebook.png') center no-repeat #3B5998;
+                border: 1px solid #3B5998;
+                &:hover{
+                    border: 1px solid darken(#3B5998, 10%);
+                }
+            }
+            &.google{
+                background: image-url('social/google.png') center no-repeat #C83D20;
+                border: 1px solid #C83D20;
+                &:hover{
+                    border: 1px solid darken(#C83D20, 10%);
+                }
+            }
+            &.twitter{
+                background: image-url('social/twitter.png') center no-repeat #55CFF8;
+                
+                
+            }
+            &.github{
+                background: image-url('social/github.png') center no-repeat rgb(175,182,202);
+                border: 1px solid rgb(175,182,202);
+                &:hover{
+                    border: 1px solid darken(rgb(175,182,202), 10%);
+                }
+            }
+            &.linkedin{
+                background: image-url('social/linkedin.png') center no-repeat #005A87;
+                border: 1px solid #005A87;
+                &:hover{
+                    border: 1px solid darken(#005A87, 10%);
+                }
+            }
+            
+            &.rss{
+                background: image-url('social/rss.png') center no-repeat #EF7522;
+                border: 1px solid #EF7522;
+                &:hover{
+                    border: 1px solid darken(#EF7522, 10%);
+                }
+            }*/
 		}
 	}
 }
